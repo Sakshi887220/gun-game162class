@@ -62,25 +62,20 @@ AFRAME.registerComponent("bullets", {
     var elementHit = e.detail.body.el;
 
     if (elementHit.id.includes("box")) {
-      elementHit.setAttribute("material", {
-        opacity: 1,
-        transparent: true,
+     
       });
 
       //impulse and point vector
-      var impulse = new CANNON.Vec3(-2, 2, 1);
-      var worldPoint = new CANNON.Vec3().copy(
-        elementHit.getAttribute("position")
+      
       );
 
       elementHit.body.applyImpulse(impulse, worldPoint);
 
       //remove event listener
-      element.removeEventListener("collide", this.shoot);
+     
 
       //remove the bullets from the scene
-      var scene = document.querySelector("#scene");
-      scene.removeChild(element);
+      
     }
   },
 });
